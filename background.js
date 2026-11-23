@@ -1,1 +1,34 @@
-Ly8gYmFja2dyb3VuZC5qcyDigJQgbWluaW1hbCBzZXJ2aWNlIHdvcmtlcjogc2VlZCBkZWZhdWx0cyBvbiBpbnN0YWxsLgondXNlIHN0cmljdCc7CgppbXBvcnRTY3JpcHRzKCdydWxlcy5qcycpOyAvLyBERUZBVUxUX0FMTE9XX0xJU1QgLyBERUZBVUxUX0RFTllfTElTVCAocHVyZSBsb2dpYywgbm8gY2hyb21lIEFQSXMpCgpjb25zdCBERUZBVUxUX1NFVFRJTkdTID0gewogIG1hc3RlckVuYWJsZWQ6IHRydWUsICAgICAgICAgIC8vIG1hc3RlciBraWxsIHN3aXRjaCAoZGVmYXVsdCBPTiBvbmNlIGluc3RhbGxlZCkKICBwYXVzZWQ6IGZhbHNlLCAgICAgICAgICAgICAgICAvLyBwb3B1cCB0b2dnbGUgZXNjYXBlIGhhdGNoCiAgb3JpZ2luczoge30sICAgICAgICAgICAgICAgICAgLy8geyBvcmlnaW46IHRydWUgfSDigJQgcGVyLW9yaWdpbiBnYXRlLCBkZWZhdWx0IE9GRiAoZW1wdHkpCiAgYWxsb3dMaXN0OiAodHlwZW9mIERFRkFVTFRfQUxMT1dfTElTVCAhPT0gJ3VuZGVmaW5lZCcpID8gREVGQVVMVF9BTExPV19MSVNULnNsaWNlKCkgOiBbXSwKICBkZW55TGlzdDogKHR5cGVvZiBERUZBVUxUX0RFTllfTElTVCAhPT0gJ3VuZGVmaW5lZCcpID8gREVGQVVMVF9ERU5ZX0xJU1Quc2xpY2UoKSA6IFtdCn07CgpjaHJvbWUucnVudGltZS5vbkluc3RhbGxlZC5hZGRMaXN0ZW5lcigoZGV0YWlscykgPT4gewogIGlmIChkZXRhaWxzLnJlYXNvbiA9PT0gJ2luc3RhbGwnKSB7CiAgICBjaHJvbWUuc3RvcmFnZS5zeW5jLmdldCgKICAgICAgWydtYXN0ZXJFbmFibGVkJywgJ3BhdXNlZCcsICdvcmlnaW5zJywgJ2FsbG93TGlzdCcsICdkZW55TGlzdCddLAogICAgICAoZXhpc3RpbmcpID0+IHsKICAgICAgICBjb25zdCBzZWVkID0ge307CiAgICAgICAgaWYgKGV4aXN0aW5nLm1hc3RlckVuYWJsZWQgPT09IHVuZGVmaW5lZCkgc2VlZC5tYXN0ZXJFbmFibGVkID0gREVGQVVMVF9TRVRUSU5HUy5tYXN0ZXJFbmFibGVkOwogICAgICAgIGlmIChleGlzdGluZy5wYXVzZWQgPT09IHVuZGVmaW5lZCkgc2VlZC5wYXVzZWQgPSBERUZBVUxUX1NFVFRJTkdTLnBhdXNlZDsKICAgICAgICBpZiAoZXhpc3Rpbmcub3JpZ2lucyA9PT0gdW5kZWZpbmVkKSBzZWVkLm9yaWdpbnMgPSBERUZBVUxUX1NFVFRJTkdTLm9yaWdpbnM7CiAgICAgICAgaWYgKGV4aXN0aW5nLmFsbG93TGlzdCA9PT0gdW5kZWZpbmVkKSBzZWVkLmFsbG93TGlzdCA9IERFRkFVTFRfU0VUVElOR1MuYWxsb3dMaXN0OwogICAgICAgIGlmIChleGlzdGluZy5kZW55TGlzdCA9PT0gdW5kZWZpbmVkKSBzZWVkLmRlbnlMaXN0ID0gREVGQVVMVF9TRVRUSU5HUy5kZW55TGlzdDsKICAgICAgICBpZiAoT2JqZWN0LmtleXMoc2VlZCkubGVuZ3RoID4gMCkgewogICAgICAgICAgY2hyb21lLnN0b3JhZ2Uuc3luYy5zZXQoc2VlZCk7CiAgICAgICAgfQogICAgICAgIGNocm9tZS5zdG9yYWdlLmxvY2FsLmdldChbJ2xvZyddLCAocikgPT4gewogICAgICAgICAgaWYgKCFBcnJheS5pc0FycmF5KHIubG9nKSkgY2hyb21lLnN0b3JhZ2UubG9jYWwuc2V0KHsgbG9nOiBbXSB9KTsKICAgICAgICB9KTsKICAgICAgfQogICAgKTsKICB9Cn0pOwo=
+// background.js — minimal service worker: seed defaults on install.
+'use strict';
+
+importScripts('rules.js'); // DEFAULT_ALLOW_LIST / DEFAULT_DENY_LIST (pure logic, no chrome APIs)
+
+const DEFAULT_SETTINGS = {
+  masterEnabled: true,          // master kill switch (default ON once installed)
+  paused: false,                // popup toggle escape hatch
+  origins: {},                  // { origin: true } — per-origin gate, default OFF (empty)
+  allowList: (typeof DEFAULT_ALLOW_LIST !== 'undefined') ? DEFAULT_ALLOW_LIST.slice() : [],
+  denyList: (typeof DEFAULT_DENY_LIST !== 'undefined') ? DEFAULT_DENY_LIST.slice() : []
+};
+
+chrome.runtime.onInstalled.addListener((details) => {
+  if (details.reason === 'install') {
+    chrome.storage.sync.get(
+      ['masterEnabled', 'paused', 'origins', 'allowList', 'denyList'],
+      (existing) => {
+        const seed = {};
+        if (existing.masterEnabled === undefined) seed.masterEnabled = DEFAULT_SETTINGS.masterEnabled;
+        if (existing.paused === undefined) seed.paused = DEFAULT_SETTINGS.paused;
+        if (existing.origins === undefined) seed.origins = DEFAULT_SETTINGS.origins;
+        if (existing.allowList === undefined) seed.allowList = DEFAULT_SETTINGS.allowList;
+        if (existing.denyList === undefined) seed.denyList = DEFAULT_SETTINGS.denyList;
+        if (Object.keys(seed).length > 0) {
+          chrome.storage.sync.set(seed);
+        }
+        chrome.storage.local.get(['log'], (r) => {
+          if (!Array.isArray(r.log)) chrome.storage.local.set({ log: [] });
+        });
+      }
+    );
+  }
+});

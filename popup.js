@@ -1,1 +1,107 @@
-Ly8gcG9wdXAuanMg4oCUIG1hc3RlciB0b2dnbGUsIHBlci1vcmlnaW4gdG9nZ2xlLCBhbGxvdy1saXN0IGVkaXRvciwgbG9nIHZpZXcuCid1c2Ugc3RyaWN0JzsKCmNvbnN0ICQgPSAoaWQpID0+IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKGlkKTsKbGV0IGN1cnJlbnRPcmlnaW4gPSAnJzsKCmZ1bmN0aW9uIHNldFN0YXR1cyhtc2cpIHsKICAkKCdzdGF0dXMnKS50ZXh0Q29udGVudCA9IG1zZyB8fCAnJzsKICBpZiAobXNnKSBzZXRUaW1lb3V0KCgpID0+IHsgJCgnc3RhdHVzJykudGV4dENvbnRlbnQgPSAnJzsgfSwgMzAwMCk7Cn0KCmZ1bmN0aW9uIHJlbmRlckxvZyhsb2cpIHsKICBjb25zdCB1bCA9ICQoJ2xvZycpOwogIHVsLmlubmVySFRNTCA9ICcnOwogIGNvbnN0IGVudHJpZXMgPSAobG9nIHx8IFtdKS5zbGljZSgtMjApLnJldmVyc2UoKTsKICBpZiAoZW50cmllcy5sZW5ndGggPT09IDApIHsKICAgIGNvbnN0IGxpID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnbGknKTsKICAgIGxpLnRleHRDb250ZW50ID0gJ05vIGRlY2lzaW9ucyBsb2dnZWQgeWV0Lic7CiAgICB1bC5hcHBlbmRDaGlsZChsaSk7CiAgICByZXR1cm47CiAgfQogIGZvciAoY29uc3QgZSBvZiBlbnRyaWVzKSB7CiAgICBjb25zdCBsaSA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2xpJyk7CiAgICBjb25zdCBjbHMgPSBlLmRlY2lzaW9uID09PSAnYWxsb3cnID8gJ2FsbG93JyA6IGUuZGVjaXNpb24gPT09ICdkZW55JyA/ICdkZW55LWRlY2lzaW9uJyA6IGUuZGVjaXNpb24gPT09ICdyZXZpZXcnID8gJ3JldmlldycgOiAnaWdub3JlJzsKICAgIGNvbnN0IHRpbWUgPSBlLnRzID8gbmV3IERhdGUoZS50cykudG9Mb2NhbGVUaW1lU3RyaW5nKCkgOiAnJzsKICAgIGxpLmlubmVySFRNTCA9ICcnOwogICAgY29uc3Qgc3Ryb25nID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnc3Ryb25nJyk7CiAgICBzdHJvbmcuY2xhc3NOYW1lID0gY2xzOwogICAgc3Ryb25nLnRleHRDb250ZW50ID0gZS5kZWNpc2lvbi50b1VwcGVyQ2FzZSgpOwogICAgbGkuYXBwZW5kQ2hpbGQoc3Ryb25nKTsKICAgIGxpLmFwcGVuZENoaWxkKGRvY3VtZW50LmNyZWF0ZVRleHROb2RlKCcgJyArIHRpbWUgKyAnIOKAlCAnICsgKGUuYWN0aW9uIHx8ICcnKS5zbGljZSgwLCAxMjApKSk7CiAgICBjb25zdCBzbWFsbCA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2RpdicpOwogICAgc21hbGwuY2xhc3NOYW1lID0gJ25vdGUnOwogICAgc21hbGwudGV4dENvbnRlbnQgPSBlLnJlYXNvbiB8fCAnJzsKICAgIGxpLmFwcGVuZENoaWxkKHNtYWxsKTsKICAgIHVsLmFwcGVuZENoaWxkKGxpKTsKICB9Cn0KCmZ1bmN0aW9uIGxvYWRBbGwoKSB7CiAgdHJ5IHsKICAgIGNvbnN0IHYgPSBjaHJvbWUucnVudGltZSAmJiBjaHJvbWUucnVudGltZS5nZXRNYW5pZmVzdCA/IGNocm9tZS5ydW50aW1lLmdldE1hbmlmZXN0KCkudmVyc2lvbiA6ICcnOwogICAgaWYgKHYpICQoJ3ZlcnNpb24nKS50ZXh0Q29udGVudCA9ICdWZXJzaW9uICcgKyB2ICsgJyDigJQgY2hlY2sgdGhpcyBtYXRjaGVzIHRoZSBsYXRlc3Qgb24gR2l0SHViIGJlZm9yZSBkZWJ1Z2dpbmcuJzsKICB9IGNhdGNoIChlKSB7IC8qIHZlcnNpb24gZGlzcGxheSBpcyBiZXN0LWVmZm9ydCAqLyB9CiAgY2hyb21lLnN0b3JhZ2Uuc3luYy5nZXQoCiAgICBbJ21hc3RlckVuYWJsZWQnLCAncGF1c2VkJywgJ29yaWdpbnMnLCAnYWxsb3dMaXN0JywgJ2RlbnlMaXN0J10sCiAgICAocykgPT4gewogICAgICAkKCdtYXN0ZXJUb2dnbGUnKS5jaGVja2VkID0gcy5tYXN0ZXJFbmFibGVkICE9PSBmYWxzZTsKICAgICAgJCgncGF1c2VUb2dnbGUnKS5jaGVja2VkID0gcy5wYXVzZWQgPT09IHRydWU7CiAgICAgIGNvbnN0IG9yaWdpbnMgPSBzLm9yaWdpbnMgfHwge307CiAgICAgICQoJ29yaWdpblRvZ2dsZScpLmNoZWNrZWQgPSBjdXJyZW50T3JpZ2luID8gb3JpZ2luc1tjdXJyZW50T3JpZ2luXSA9PT0gdHJ1ZSA6IGZhbHNlOwogICAgICAkKCdhbGxvd0xpc3QnKS52YWx1ZSA9IChzLmFsbG93TGlzdCB8fCBERUZBVUxUX0FMTE9XX0xJU1QpLmpvaW4oJ1xuJyk7CiAgICAgICQoJ2RlbnlMaXN0JykudGV4dENvbnRlbnQgPSAocy5kZW55TGlzdCB8fCBERUZBVUxUX0RFTllfTElTVCkuam9pbignXG4nKTsKICAgIH0KICApOwogIGNocm9tZS5zdG9yYWdlLmxvY2FsLmdldChbJ2xvZyddLCAocikgPT4gcmVuZGVyTG9nKHIubG9nIHx8IFtdKSk7Cn0KCmRvY3VtZW50LmFkZEV2ZW50TGlzdGVuZXIoJ0RPTUNvbnRlbnRMb2FkZWQnLCAoKSA9PiB7CiAgY2hyb21lLnRhYnMucXVlcnkoeyBhY3RpdmU6IHRydWUsIGN1cnJlbnRXaW5kb3c6IHRydWUgfSwgKHRhYnMpID0+IHsKICAgIGlmICh0YWJzICYmIHRhYnNbMF0gJiYgdGFic1swXS51cmwpIHsKICAgICAgdHJ5IHsgY3VycmVudE9yaWdpbiA9IG5ldyBVUkwodGFic1swXS51cmwpLm9yaWdpbjsgfSBjYXRjaCAoZSkgeyBjdXJyZW50T3JpZ2luID0gJyc7IH0KICAgIH0KICAgICQoJ29yaWdpbkxhYmVsJykudGV4dENvbnRlbnQgPSBjdXJyZW50T3JpZ2luIHx8ICcobm8gdGFiIG9yaWdpbiknOwogICAgbG9hZEFsbCgpOwogIH0pOwoKICAkKCdtYXN0ZXJUb2dnbGUnKS5hZGRFdmVudExpc3RlbmVyKCdjaGFuZ2UnLCAoZSkgPT4gewogICAgY2hyb21lLnN0b3JhZ2Uuc3luYy5zZXQoeyBtYXN0ZXJFbmFibGVkOiBlLnRhcmdldC5jaGVja2VkIH0sICgpID0+IHNldFN0YXR1cygnTWFzdGVyICcgKyAoZS50YXJnZXQuY2hlY2tlZCA/ICdlbmFibGVkJyA6ICdkaXNhYmxlZCcpKSk7CiAgfSk7CiAgJCgncGF1c2VUb2dnbGUnKS5hZGRFdmVudExpc3RlbmVyKCdjaGFuZ2UnLCAoZSkgPT4gewogICAgY2hyb21lLnN0b3JhZ2Uuc3luYy5zZXQoeyBwYXVzZWQ6IGUudGFyZ2V0LmNoZWNrZWQgfSwgKCkgPT4gc2V0U3RhdHVzKGUudGFyZ2V0LmNoZWNrZWQgPyAnUGF1c2VkJyA6ICdSZXN1bWVkJykpOwogIH0pOwogICQoJ29yaWdpblRvZ2dsZScpLmFkZEV2ZW50TGlzdGVuZXIoJ2NoYW5nZScsIChlKSA9PiB7CiAgICBjaHJvbWUuc3RvcmFnZS5zeW5jLmdldChbJ29yaWdpbnMnXSwgKHMpID0+IHsKICAgICAgY29uc3Qgb3JpZ2lucyA9IHMub3JpZ2lucyB8fCB7fTsKICAgICAgaWYgKGUudGFyZ2V0LmNoZWNrZWQpIG9yaWdpbnNbY3VycmVudE9yaWdpbl0gPSB0cnVlOwogICAgICBlbHNlIGRlbGV0ZSBvcmlnaW5zW2N1cnJlbnRPcmlnaW5dOwogICAgICBjaHJvbWUuc3RvcmFnZS5zeW5jLnNldCh7IG9yaWdpbnMgfSwgKCkgPT4gc2V0U3RhdHVzKGUudGFyZ2V0LmNoZWNrZWQgPyAnRW5hYmxlZCBmb3IgJyArIGN1cnJlbnRPcmlnaW4gOiAnRGlzYWJsZWQgZm9yICcgKyBjdXJyZW50T3JpZ2luKSk7CiAgICB9KTsKICB9KTsKICAkKCdzYXZlQWxsb3dMaXN0JykuYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLCAoKSA9PiB7CiAgICBjb25zdCBsaW5lcyA9ICQoJ2FsbG93TGlzdCcpLnZhbHVlLnNwbGl0KCdcbicpLm1hcCgobCkgPT4gbC50cmltKCkpLmZpbHRlcihCb29sZWFuKTsKICAgIC8vIFZhbGlkYXRlIGVhY2ggcmVnZXggYmVmb3JlIHNhdmluZy4KICAgIGZvciAoY29uc3QgbGluZSBvZiBsaW5lcykgewogICAgICB0cnkgeyBuZXcgUmVnRXhwKGxpbmUsICdpJyk7IH0gY2F0Y2ggKGVycikgewogICAgICAgIHNldFN0YXR1cygnSW52YWxpZCByZWdleCwgbm90IHNhdmVkOiAnICsgbGluZSk7CiAgICAgICAgcmV0dXJuOwogICAgICB9CiAgICB9CiAgICBjaHJvbWUuc3RvcmFnZS5zeW5jLnNldCh7IGFsbG93TGlzdDogbGluZXMgfSwgKCkgPT4gc2V0U3RhdHVzKCdBbGxvdy1saXN0IHNhdmVkICgnICsgbGluZXMubGVuZ3RoICsgJyBydWxlcyknKSk7CiAgfSk7CiAgJCgnY2xlYXJMb2cnKS5hZGRFdmVudExpc3RlbmVyKCdjbGljaycsICgpID0+IHsKICAgIGNocm9tZS5zdG9yYWdlLmxvY2FsLnNldCh7IGxvZzogW10gfSwgKCkgPT4geyByZW5kZXJMb2coW10pOyBzZXRTdGF0dXMoJ0xvZyBjbGVhcmVkJyk7IH0pOwogIH0pOwogICQoJ2V4cG9ydExvZycpLmFkZEV2ZW50TGlzdGVuZXIoJ2NsaWNrJywgKCkgPT4gewogICAgY2hyb21lLnN0b3JhZ2UubG9jYWwuZ2V0KFsnbG9nJ10sIChyKSA9PiB7CiAgICAgIGNvbnN0IGJsb2IgPSBuZXcgQmxvYihbSlNPTi5zdHJpbmdpZnkoci5sb2cgfHwgW10sIG51bGwsIDIpXSwgeyB0eXBlOiAnYXBwbGljYXRpb24vanNvbicgfSk7CiAgICAgIGNvbnN0IHVybCA9IFVSTC5jcmVhdGVPYmplY3RVUkwoYmxvYik7CiAgICAgIGNvbnN0IGEgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdhJyk7CiAgICAgIGEuaHJlZiA9IHVybDsKICAgICAgYS5kb3dubG9hZCA9ICdtdXNlLWF1dG8tYWxsb3ctbG9nLmpzb24nOwogICAgICBhLmNsaWNrKCk7CiAgICAgIFVSTC5yZXZva2VPYmplY3RVUkwodXJsKTsKICAgIH0pOwogIH0pOwp9KTsK
+// popup.js — master toggle, per-origin toggle, allow-list editor, log view.
+'use strict';
+
+const $ = (id) => document.getElementById(id);
+let currentOrigin = '';
+
+function setStatus(msg) {
+  $('status').textContent = msg || '';
+  if (msg) setTimeout(() => { $('status').textContent = ''; }, 3000);
+}
+
+function renderLog(log) {
+  const ul = $('log');
+  ul.innerHTML = '';
+  const entries = (log || []).slice(-20).reverse();
+  if (entries.length === 0) {
+    const li = document.createElement('li');
+    li.textContent = 'No decisions logged yet.';
+    ul.appendChild(li);
+    return;
+  }
+  for (const e of entries) {
+    const li = document.createElement('li');
+    const cls = e.decision === 'allow' ? 'allow' : e.decision === 'deny' ? 'deny-decision' : e.decision === 'review' ? 'review' : 'ignore';
+    const time = e.ts ? new Date(e.ts).toLocaleTimeString() : '';
+    li.innerHTML = '';
+    const strong = document.createElement('strong');
+    strong.className = cls;
+    strong.textContent = e.decision.toUpperCase();
+    li.appendChild(strong);
+    li.appendChild(document.createTextNode(' ' + time + ' — ' + (e.action || '').slice(0, 120)));
+    const small = document.createElement('div');
+    small.className = 'note';
+    small.textContent = e.reason || '';
+    li.appendChild(small);
+    ul.appendChild(li);
+  }
+}
+
+function loadAll() {
+  try {
+    const v = chrome.runtime && chrome.runtime.getManifest ? chrome.runtime.getManifest().version : '';
+    if (v) $('version').textContent = 'Version ' + v + ' — check this matches the latest on GitHub before debugging.';
+  } catch (e) { /* version display is best-effort */ }
+  chrome.storage.sync.get(
+    ['masterEnabled', 'paused', 'origins', 'allowList', 'denyList'],
+    (s) => {
+      $('masterToggle').checked = s.masterEnabled !== false;
+      $('pauseToggle').checked = s.paused === true;
+      const origins = s.origins || {};
+      $('originToggle').checked = currentOrigin ? origins[currentOrigin] === true : false;
+      $('allowList').value = (s.allowList || DEFAULT_ALLOW_LIST).join('\n');
+      $('denyList').textContent = (s.denyList || DEFAULT_DENY_LIST).join('\n');
+    }
+  );
+  chrome.storage.local.get(['log'], (r) => renderLog(r.log || []));
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+    if (tabs && tabs[0] && tabs[0].url) {
+      try { currentOrigin = new URL(tabs[0].url).origin; } catch (e) { currentOrigin = ''; }
+    }
+    $('originLabel').textContent = currentOrigin || '(no tab origin)';
+    loadAll();
+  });
+
+  $('masterToggle').addEventListener('change', (e) => {
+    chrome.storage.sync.set({ masterEnabled: e.target.checked }, () => setStatus('Master ' + (e.target.checked ? 'enabled' : 'disabled')));
+  });
+  $('pauseToggle').addEventListener('change', (e) => {
+    chrome.storage.sync.set({ paused: e.target.checked }, () => setStatus(e.target.checked ? 'Paused' : 'Resumed'));
+  });
+  $('originToggle').addEventListener('change', (e) => {
+    chrome.storage.sync.get(['origins'], (s) => {
+      const origins = s.origins || {};
+      if (e.target.checked) origins[currentOrigin] = true;
+      else delete origins[currentOrigin];
+      chrome.storage.sync.set({ origins }, () => setStatus(e.target.checked ? 'Enabled for ' + currentOrigin : 'Disabled for ' + currentOrigin));
+    });
+  });
+  $('saveAllowList').addEventListener('click', () => {
+    const lines = $('allowList').value.split('\n').map((l) => l.trim()).filter(Boolean);
+    // Validate each regex before saving.
+    for (const line of lines) {
+      try { new RegExp(line, 'i'); } catch (err) {
+        setStatus('Invalid regex, not saved: ' + line);
+        return;
+      }
+    }
+    chrome.storage.sync.set({ allowList: lines }, () => setStatus('Allow-list saved (' + lines.length + ' rules)'));
+  });
+  $('clearLog').addEventListener('click', () => {
+    chrome.storage.local.set({ log: [] }, () => { renderLog([]); setStatus('Log cleared'); });
+  });
+  $('exportLog').addEventListener('click', () => {
+    chrome.storage.local.get(['log'], (r) => {
+      const blob = new Blob([JSON.stringify(r.log || [], null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'muse-auto-allow-log.json';
+      a.click();
+      URL.revokeObjectURL(url);
+    });
+  });
+});

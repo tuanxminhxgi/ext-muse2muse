@@ -1,1 +1,192 @@
-Ly8gdGVzdC9ydWxlcy50ZXN0Lm1qcyDigJQgdW5pdCB0ZXN0cyBmb3IgdGhlIHB1cmUgY2xhc3NpZmljYXRpb24gbG9naWMgaW4gcnVsZXMuanMuCi8vIFJ1bjogbm9kZSB0ZXN0L3J1bGVzLnRlc3QubWpzCmltcG9ydCB7IGNyZWF0ZVJlcXVpcmUgfSBmcm9tICdub2RlOm1vZHVsZSc7CmltcG9ydCBhc3NlcnQgZnJvbSAnbm9kZTphc3NlcnQvc3RyaWN0JzsKCmNvbnN0IHJlcXVpcmUgPSBjcmVhdGVSZXF1aXJlKGltcG9ydC5tZXRhLnVybCk7CmNvbnN0IHsgY2xhc3NpZnlBY3Rpb24sIERFRkFVTFRfQUxMT1dfTElTVCwgREVGQVVMVF9ERU5ZX0xJU1QsIGlzQWxsb3dCdXR0b25MYWJlbCwgaXNSZXZpZXdCdXR0b25MYWJlbCwgaXNFeHRlbnNpb25BY3RpdmUgfSA9IHJlcXVpcmUoJy4uL3J1bGVzLmpzJyk7CgpsZXQgcGFzc2VkID0gMDsKZnVuY3Rpb24gY2hlY2sobmFtZSwgZm4pIHsKICBmbigpOwogIHBhc3NlZCArPSAxOwogIGNvbnNvbGUubG9nKCdvayAtICcgKyBuYW1lKTsKfQoKLy8gMS4gQWxsb3c6IGdpdCBwdXNoIG9uIHR1YW54bWluaHhnaS9hZ2VudC10b29scwpjaGVjaygnYWxsb3cgcnVsZSBtYXRjaGVzIGdpdCBwdXNoIG9uIHR1YW54bWluaHhnaS9hZ2VudC10b29scycsICgpID0+IHsKICBjb25zdCByID0gY2xhc3NpZnlBY3Rpb24oCiAgICAnQWxsb3cgZ2l0IHB1c2ggdG8gdHVhbnhtaW5oeGdpL2FnZW50LXRvb2xzIG9uIGJyYW5jaCByZXBvcnRzLWxvY2FsLXBhZ2UnLAogICAgREVGQVVMVF9BTExPV19MSVNULCBERUZBVUxUX0RFTllfTElTVCk7CiAgYXNzZXJ0LmVxdWFsKHIuZGVjaXNpb24sICdhbGxvdycpOwp9KTsKCi8vIDIuIEFsbG93OiBnaXQgYnJhbmNoIGNyZWF0aW9uCmNoZWNrKCdhbGxvdyBydWxlIG1hdGNoZXMgZ2l0IGJyYW5jaCBjcmVhdGlvbicsICgpID0+IHsKICBjb25zdCByID0gY2xhc3NpZnlBY3Rpb24oJ0NyZWF0ZSBnaXQgYnJhbmNoIGltcGxlbWVudC1iLWJyaWRnZS1pZGVhcyBpbiB0dWFueG1pbmh4Z2kvbXVzZTJtdXNlJywKICAgIERFRkFVTFRfQUxMT1dfTElTVCwgREVGQVVMVF9ERU5ZX0xJU1QpOwogIGFzc2VydC5lcXVhbChyLmRlY2lzaW9uLCAnYWxsb3cnKTsKfSk7CgovLyAzLiBBbGxvdzogb3BlbmluZyBhIFBSCmNoZWNrKCdhbGxvdyBydWxlIG1hdGNoZXMgb3BlbmluZyBhIHB1bGwgcmVxdWVzdCcsICgpID0+IHsKICBjb25zdCByID0gY2xhc3NpZnlBY3Rpb24oJ09wZW4gYSBwdWxsIHJlcXVlc3QgZnJvbSBpbXBsZW1lbnQtYi1ncm91cHMxMiBpbnRvIG1haW4nLAogICAgREVGQVVMVF9BTExPV19MSVNULCBERUZBVUxUX0RFTllfTElTVCk7CiAgYXNzZXJ0LmVxdWFsKHIuZGVjaXNpb24sICdhbGxvdycpOwp9KTsKCi8vIDQuIEFsbG93OiByZWFkaW5nIGZpbGVzCmNoZWNrKCdhbGxvdyBydWxlIG1hdGNoZXMgcmVhZGluZyBmaWxlcycsICgpID0+IHsKICBjb25zdCByID0gY2xhc3NpZnlBY3Rpb24oJ1JlYWQgZmlsZXMgaW4gdHVhbnhtaW5oeGdpL2FnZW50LXRvb2xzOiB3ZWIvc3JjL2xvY2FsL3BhZ2VzL3JlcG9ydHMvJywKICAgIERFRkFVTFRfQUxMT1dfTElTVCwgREVGQVVMVF9ERU5ZX0xJU1QpOwogIGFzc2VydC5lcXVhbChyLmRlY2lzaW9uLCAnYWxsb3cnKTsKfSk7CgovLyA1LiBEZW55IHdpbnMgb3ZlciBhbGxvdzogIm1lcmdlIHB1bGwgcmVxdWVzdCIgYWxzbyBtYXRjaGVzICJwdWxsIHJlcXVlc3QiIGFsbG93IHJ1bGUKY2hlY2soJ2Rlbnkgd2lucyBvdmVyIGFsbG93IGZvciAibWVyZ2UgcHVsbCByZXF1ZXN0IicsICgpID0+IHsKICBjb25zdCByID0gY2xhc3NpZnlBY3Rpb24oJ01lcmdlIHB1bGwgcmVxdWVzdCAjMTEgaW50byBtYWluICh0dWFueG1pbmh4Z2kvbXVzZTJtdXNlKScsCiAgICBERUZBVUxUX0FMTE9XX0xJU1QsIERFRkFVTFRfREVOWV9MSVNUKTsKICBhc3NlcnQuZXF1YWwoci5kZWNpc2lvbiwgJ2RlbnknKTsKICBhc3NlcnQubWF0Y2goci5yZWFzb24sIC9kZW55Lyk7Cn0pOwoKLy8gNi4gUGF5bWVudCAvIGJpbGxpbmcgZGVuaWVkCmNoZWNrKCdwYXltZW50IHRleHQgaXMgZGVuaWVkJywgKCkgPT4gewogIGNvbnN0IHIgPSBjbGFzc2lmeUFjdGlvbignTWFrZSBhIHBheW1lbnQgb2YgJDQ5IGZvciBiaWxsaW5nIC8gU3RyaXBlIHN1YnNjcmlwdGlvbicsCiAgICBERUZBVUxUX0FMTE9XX0xJU1QsIERFRkFVTFRfREVOWV9MSVNUKTsKICBhc3NlcnQuZXF1YWwoci5kZWNpc2lvbiwgJ2RlbnknKTsKfSk7CgovLyA3LiBDcmVkZW50aWFscyAvIHNlY3JldHMgLyB0b2tlbnMgZGVuaWVkCmNoZWNrKCdjcmVkZW50aWFsIHRleHQgaXMgZGVuaWVkJywgKCkgPT4gewogIGNvbnN0IHIgPSBjbGFzc2lmeUFjdGlvbignUmVhZCB0aGUgQVBJIHRva2VuIC8gcGFzc3dvcmQgZnJvbSBjcmVkZW50aWFscycsCiAgICBERUZBVUxUX0FMTE9XX0xJU1QsIERFRkFVTFRfREVOWV9MSVNUKTsKICBhc3NlcnQuZXF1YWwoci5kZWNpc2lvbiwgJ2RlbnknKTsKfSk7CgovLyA4LiBEZWxldGUgLyBkZXN0cnVjdGl2ZSBkZW5pZWQKY2hlY2soJ2RlbGV0ZSB0ZXh0IGlzIGRlbmllZCcsICgpID0+IHsKICBjb25zdCByID0gY2xhc3NpZnlBY3Rpb24oJ0RlbGV0ZSB0aGUgcHJvZHVjdGlvbiBkYXRhYmFzZSBhbmQgcmVtb3ZlIGZpbGVzJywKICAgIERFRkFVTFRfQUxMT1dfTElTVCwgREVGQVVMVF9ERU5ZX0xJU1QpOwogIGFzc2VydC5lcXVhbChyLmRlY2lzaW9uLCAnZGVueScpOwp9KTsKCi8vIDkuIFVucmVsYXRlZCB0ZXh0IGlnbm9yZWQKY2hlY2soJ3VucmVsYXRlZCB0ZXh0IGlzIGlnbm9yZWQnLCAoKSA9PiB7CiAgY29uc3QgciA9IGNsYXNzaWZ5QWN0aW9uKCdTZW5kIGEgbWVzc2FnZSB0byBNYXJ0aW4gb24gVGVsZWdyYW0gYWJvdXQgdGhlIHdlYXRoZXInLAogICAgREVGQVVMVF9BTExPV19MSVNULCBERUZBVUxUX0RFTllfTElTVCk7CiAgYXNzZXJ0LmVxdWFsKHIuZGVjaXNpb24sICdpZ25vcmUnKTsKfSk7CgovLyAxMC4gRW1wdHkgdGV4dCBpZ25vcmVkCmNoZWNrKCdlbXB0eSB0ZXh0IGlzIGlnbm9yZWQnLCAoKSA9PiB7CiAgY29uc3QgciA9IGNsYXNzaWZ5QWN0aW9uKCcgICAnLCBERUZBVUxUX0FMTE9XX0xJU1QsIERFRkFVTFRfREVOWV9MSVNUKTsKICBhc3NlcnQuZXF1YWwoci5kZWNpc2lvbiwgJ2lnbm9yZScpOwp9KTsKCi8vIDExLiBEZW55IHdpbnMgZXZlbiB3aGVuIGFuIGFsbG93IHJ1bGUgYWxzbyBtYXRjaGVzIChnaXQgcHVzaCArIGRlbGV0ZSkKY2hlY2soJ2Rlbnkgd2lucyB3aGVuIGJvdGggbGlzdHMgbWF0Y2gnLCAoKSA9PiB7CiAgY29uc3QgciA9IGNsYXNzaWZ5QWN0aW9uKCdnaXQgcHVzaCB0aGVuIGRlbGV0ZSB0aGUgcmVtb3RlIGJyYW5jaCcsCiAgICBERUZBVUxUX0FMTE9XX0xJU1QsIERFRkFVTFRfREVOWV9MSVNUKTsKICBhc3NlcnQuZXF1YWwoci5kZWNpc2lvbiwgJ2RlbnknKTsKfSk7CgovLyAxMi4gQWxsb3c6ICJHZXQgZmlsZSBjb250ZW50cyBvbiBHaXRIdWIiIOKAlCB0aGUgTWFpbGJveCBDaGVjayBjYXJkIGluIHRoZQovLyBzY3JlZW5zaG90cyAoMjAyNi0xMS0yMyksIHJlYWQtb25seSwgdHVhbnhtaW5oeGdpL211c2UybXVzZSwgbWFpbi4KY2hlY2soJ2FsbG93IHJ1bGUgbWF0Y2hlcyBHZXQgZmlsZSBjb250ZW50cyBvbiBHaXRIdWInLCAoKSA9PiB7CiAgY29uc3QgciA9IGNsYXNzaWZ5QWN0aW9uKAogICAgJ0FsbG93IE11c2UgQiB0byBwZXJmb3JtIHRoaXMgYWN0aW9uIG9uIHlvdXIgR2l0SHViIGFjY291bnQgZm9yIE11c2UgQiBNYWlsYm94IENoZWNrPyBNdXNlIEIgd2FudHMgdG8gcmV0cmlldmUgZmlsZSBjb250ZW50cyBmcm9tIHRoZSBHaXRIdWIgcmVwb3NpdG9yeSB0dWFueG1pbmh4Z2kvbXVzZTJtdXNlIG9uIHRoZSBtYWluIGJyYW5jaCcsCiAgICBERUZBVUxUX0FMTE9XX0xJU1QsIERFRkFVTFRfREVOWV9MSVNUKTsKICBhc3NlcnQuZXF1YWwoci5kZWNpc2lvbiwgJ2FsbG93Jyk7Cn0pOwoKLy8gMTMuIEFsbG93OiAiR2V0IGNvbW1pdCBvbiBHaXRIdWIiIOKAlCB0aGUgb3RoZXIgTWFpbGJveCBDaGVjayBjYXJkLgpjaGVjaygnYWxsb3cgcnVsZSBtYXRjaGVzIEdldCBjb21taXQgb24gR2l0SHViJywgKCkgPT4gewogIGNvbnN0IHIgPSBjbGFzc2lmeUFjdGlvbigKICAgICdNdXNlIEIgd2FudHMgdG8gbG9vayB1cCBjb21taXQgZGV0YWlscyBmb3IgdGhlIG1haW4gYnJhbmNoIGluIHR1YW54bWluaHhnaS9tdXNlMm11c2UuIFRoaXMgaXMgZm9yIHRoZSBzY2hlZHVsZWQgdGFzayAiTXVzZSBCIE1haWxib3ggQ2hlY2siJywKICAgIERFRkFVTFRfQUxMT1dfTElTVCwgREVGQVVMVF9ERU5ZX0xJU1QpOwogIGFzc2VydC5lcXVhbChyLmRlY2lzaW9uLCAnYWxsb3cnKTsKfSk7CgovLyAxNC4gUmV2aWV3IGJ1dHRvbiBsYWJlbHMgKHN0ZXAgMSBvZiB0aGUgdjEuMS4wIGZsb3cpOiBleGFjdCAiUmV2aWV3IgovLyBvcGVucyB0aGUgcGFuZWw7ICJBbGxvdyIvIkFwcHJvdmUiIGFyZSBzdGVwLTIgbGFiZWxzLCBub3QgUmV2aWV3LgpjaGVjaygnUmV2aWV3IGxhYmVsIHJlY29nbmlzZWQsIEFsbG93L0FwcHJvdmUgYXJlIG5vdCBSZXZpZXcnLCAoKSA9PiB7CiAgYXNzZXJ0LmVxdWFsKGlzUmV2aWV3QnV0dG9uTGFiZWwoJ1JldmlldycpLCB0cnVlKTsKICBhc3NlcnQuZXF1YWwoaXNSZXZpZXdCdXR0b25MYWJlbCgncmV2aWV3JyksIHRydWUpOwogIGFzc2VydC5lcXVhbChpc1Jldmlld0J1dHRvbkxhYmVsKCdSZXZpZXcg4oC6JyksIHRydWUpOwogIGFzc2VydC5lcXVhbChpc1Jldmlld0J1dHRvbkxhYmVsKCdBbGxvdycpLCBmYWxzZSk7CiAgYXNzZXJ0LmVxdWFsKGlzUmV2aWV3QnV0dG9uTGFiZWwoJ0FwcHJvdmUnKSwgZmFsc2UpOwogIGFzc2VydC5lcXVhbChpc1Jldmlld0J1dHRvbkxhYmVsKCdBIHRhc2sgbmVlZHMgcmV2aWV3JyksIGZhbHNlKTsKfSk7CgovLyAxNS4gQWxsb3cvQXBwcm92ZSBidXR0b24gbGFiZWxzIChzdGVwIDIpOiBBbGxvdywgQWNjZXB0LCBBcHByb3ZlIGFuZAovLyB0aGUgVmlldG5hbWVzZSBlcXVpdmFsZW50czsgIlJldmlldyIgaXMgbm90IGFuIEFsbG93IGxhYmVsLgpjaGVjaygnQWxsb3cvQXBwcm92ZSBsYWJlbHMgcmVjb2duaXNlZCwgUmV2aWV3IGlzIG5vdCBBbGxvdycsICgpID0+IHsKICBhc3NlcnQuZXF1YWwoaXNBbGxvd0J1dHRvbkxhYmVsKCdBbGxvdycpLCB0cnVlKTsKICBhc3NlcnQuZXF1YWwoaXNBbGxvd0J1dHRvbkxhYmVsKCdBcHByb3ZlJyksIHRydWUpOwogIGFzc2VydC5lcXVhbChpc0FsbG93QnV0dG9uTGFiZWwoJ0FjY2VwdCcpLCB0cnVlKTsKICBhc3NlcnQuZXF1YWwoaXNBbGxvd0J1dHRvbkxhYmVsKCdDaG8gcGjDqXAnKSwgdHJ1ZSk7CiAgYXNzZXJ0LmVxdWFsKGlzQWxsb3dCdXR0b25MYWJlbCgnUmV2aWV3JyksIGZhbHNlKTsKICBhc3NlcnQuZXF1YWwoaXNBbGxvd0J1dHRvbkxhYmVsKCdEZW55JyksIGZhbHNlKTsKfSk7CgovLyAxNi4gRGVueSBzdGlsbCB3aW5zIGZvciBhIEdldC1maWxlLWNvbnRlbnRzIGNhcmQgdGhhdCBhbHNvIG1lbnRpb25zIGEKLy8gY3JlZGVudGlhbC90b2tlbiDigJQgb3BlbmluZyBpdHMgcGFuZWwgdmlhIFJldmlldyBtdXN0IG5ldmVyIGF1dG8tYWxsb3cgaXQuCmNoZWNrKCdkZW55IHdpbnMgZm9yIEdldCBmaWxlIGNvbnRlbnRzIGNhcmQgbWVudGlvbmluZyBhIHRva2VuJywgKCkgPT4gewogIGNvbnN0IHIgPSBjbGFzc2lmeUFjdGlvbigKICAgICdHZXQgZmlsZSBjb250ZW50cyBvbiBHaXRIdWIgdHVhbnhtaW5oeGdpL211c2UybXVzZSBjb250YWluaW5nIHRoZSBBUEkgdG9rZW4nLAogICAgREVGQVVMVF9BTExPV19MSVNULCBERUZBVUxUX0RFTllfTElTVCk7CiAgYXNzZXJ0LmVxdWFsKHIuZGVjaXNpb24sICdkZW55Jyk7Cn0pOwoKLy8gMTcuIHJ1bGVzLmpzIGFsc28gY29waWVzIGl0cyBleHBvcnRzIG9udG8gZ2xvYmFsVGhpcywgc28gY29udGVudC5qcwovLyBjYW4gcmVhZCB0aGVtIGV2ZW4gaWYgbGV4aWNhbCBzaGFyaW5nIGFjcm9zcyBjb250ZW50LXNjcmlwdCBmaWxlcyBmYWlscy4KY2hlY2soJ3J1bGVzIGV4cG9ydHMgYXJlIGFsc28gb24gZ2xvYmFsVGhpcyBmb3IgY29udGVudC5qcycsICgpID0+IHsKICBhc3NlcnQuZXF1YWwodHlwZW9mIGdsb2JhbFRoaXMuY2xhc3NpZnlBY3Rpb24sICdmdW5jdGlvbicpOwogIGFzc2VydC5lcXVhbCh0eXBlb2YgZ2xvYmFsVGhpcy5pc1Jldmlld0J1dHRvbkxhYmVsLCAnZnVuY3Rpb24nKTsKICBhc3NlcnQub2soQXJyYXkuaXNBcnJheShnbG9iYWxUaGlzLkRFRkFVTFRfQUxMT1dfTElTVCkpOwogIGFzc2VydC5lcXVhbChnbG9iYWxUaGlzLmlzUmV2aWV3QnV0dG9uTGFiZWwoJ1JldmlldycpLCB0cnVlKTsKfSk7CgovLyAxOC4gQWN0aXZhdGlvbjogT04gd2hlbiBtYXN0ZXIgb24sIG5vdCBwYXVzZWQsIG9yaWdpbiBlbmFibGVkLgovLyBSZWdyZXNzaW9uIHRlc3QgZm9yIHYxLjEuMC92MS4xLjE6IGNvbnRlbnQuanMgaGFkCi8vIGBpZiAoIXNldHRpbmdzLnBhdXNlZCkgcmV0dXJuIGZhbHNlYCwgd2hpY2ggbGVmdCB0aGUgZXh0ZW5zaW9uIGluZXJ0Ci8vIGluIGV4YWN0bHkgdGhlIG5vcm1hbCBjYXNlIChwYXVzZWQgPT09IGZhbHNlKS4KY2hlY2soJ2lzRXh0ZW5zaW9uQWN0aXZlIGlzIE9OIGluIHRoZSBub3JtYWwgY2FzZSwgT0ZGIHdoZW4gcGF1c2VkJywgKCkgPT4gewogIGNvbnN0IGJhc2UgPSB7IG1hc3RlckVuYWJsZWQ6IHRydWUsIHBhdXNlZDogZmFsc2UsIG9yaWdpbnM6IHsgJ2h0dHBzOi8vbXVzZS5haSc6IHRydWUgfSB9OwogIGFzc2VydC5lcXVhbChpc0V4dGVuc2lvbkFjdGl2ZShiYXNlLCAnaHR0cHM6Ly9tdXNlLmFpJyksIHRydWUpOwogIGFzc2VydC5lcXVhbChpc0V4dGVuc2lvbkFjdGl2ZSh7IC4uLmJhc2UsIHBhdXNlZDogdHJ1ZSB9LCAnaHR0cHM6Ly9tdXNlLmFpJyksIGZhbHNlKTsKICBhc3NlcnQuZXF1YWwoaXNFeHRlbnNpb25BY3RpdmUoeyAuLi5iYXNlLCBtYXN0ZXJFbmFibGVkOiBmYWxzZSB9LCAnaHR0cHM6Ly9tdXNlLmFpJyksIGZhbHNlKTsKICBhc3NlcnQuZXF1YWwoaXNFeHRlbnNpb25BY3RpdmUoeyAuLi5iYXNlLCBvcmlnaW5zOiB7fSB9LCAnaHR0cHM6Ly9tdXNlLmFpJyksIGZhbHNlKTsKICBhc3NlcnQuZXF1YWwoaXNFeHRlbnNpb25BY3RpdmUobnVsbCwgJ2h0dHBzOi8vbXVzZS5haScpLCBmYWxzZSk7Cn0pOwoKLy8gMTkuIEdpdEh1YiBhY3Rpb25zIGFkZGVkIDIwMjYtMTEtMjMgKHYxLjEuMyksIHJlc3RyaWN0aW9ucyBrZXB0OgovLyAibG9vayB1cCBhIHNwZWNpZmljIGNvbW1pdCIsICJwdXNoIGZpbGVzIiwgImNoYW5nZSBjb250ZW50IiwgYW5kIHRoZQovLyBnZW5lcmljIEdpdEh1YiBhcHByb3ZhbC1jYXJkIGhlYWRlci4KY2hlY2soJ2FsbG93IHJ1bGUgbWF0Y2hlcyBsb29rIHVwIGEgc3BlY2lmaWMgY29tbWl0JywgKCkgPT4gewogIGNvbnN0IHIgPSBjbGFzc2lmeUFjdGlvbigKICAgICdNdXNlIEIgd2FudHMgdG8gbG9vayB1cCBhIHNwZWNpZmljIGNvbW1pdCBpbiBHaXRIdWIuIFRoaXMgaXMgZm9yIHRoZSBzY2hlZHVsZWQgdGFzayAiTXVzZSBCIE1haWxib3ggQ2hlY2siLiBBY3Rpb24gR2V0IGNvbW1pdCBvbiBHaXRIdWIgQWNjb3VudCB0dWFueG1pbmh4Z2kgUmVwb3NpdG9yeSBvd25lciB0dWFueG1pbmh4Z2kgUmVwb3NpdG9yeSBtdXNlMm11c2UgQ29tbWl0IDNhMjQzZmY5MTIyNGEzZWJjNTYzNGI3MGY5OTY1MWI4Mjc0NTAzNicsCiAgICBERUZBVUxUX0FMTE9XX0xJU1QsIERFRkFVTFRfREVOWV9MSVNUKTsKICBhc3NlcnQuZXF1YWwoci5kZWNpc2lvbiwgJ2FsbG93Jyk7Cn0pOwpjaGVjaygnYWxsb3cgcnVsZSBtYXRjaGVzIHB1c2ggZmlsZXMgLyBjaGFuZ2UgY29udGVudCBvbiBHaXRIdWInLCAoKSA9PiB7CiAgY29uc3QgciA9IGNsYXNzaWZ5QWN0aW9uKAogICAgJ0FsbG93IE11c2UgQiB0byBwZXJmb3JtIHRoaXMgYWN0aW9uIG9uIHlvdXIgR2l0SHViIGFjY291bnQuIE11c2UgQiB3YW50cyB0byBjaGFuZ2UgY29udGVudCBpbiB5b3VyIEdpdEh1YiByZXBvc2l0b3J5IGJ5IHB1c2hpbmcgZmlsZXMuJywKICAgIERFRkFVTFRfQUxMT1dfTElTVCwgREVGQVVMVF9ERU5ZX0xJU1QpOwogIGFzc2VydC5lcXVhbChyLmRlY2lzaW9uLCAnYWxsb3cnKTsKICBjb25zdCByMiA9IGNsYXNzaWZ5QWN0aW9uKAogICAgJ011c2UgQiB3YW50cyB0byBwdXNoIGEgbmV3IHBhY2thZ2UuanNvbiB0byB0aGUgR2l0SHViIHJlcG9zaXRvcnknLAogICAgREVGQVVMVF9BTExPV19MSVNULCBERUZBVUxUX0RFTllfTElTVCk7CiAgYXNzZXJ0LmVxdWFsKHIyLmRlY2lzaW9uLCAnYWxsb3cnKTsKfSk7CgovLyAyMC4gRGVueSBzdGlsbCB3aW5zIGV2ZW4gd2l0aCB0aGUgR2l0SHViIGhlYWRlciBwcmVzZW50LgpjaGVjaygnZGVueSBzdGlsbCB3aW5zIGZvciBhIEdpdEh1YiBtZXJnZSBjYXJkJywgKCkgPT4gewogIGNvbnN0IHIgPSBjbGFzc2lmeUFjdGlvbigKICAgICdBbGxvdyBNdXNlIEIgdG8gcGVyZm9ybSB0aGlzIGFjdGlvbiBvbiB5b3VyIEdpdEh1YiBhY2NvdW50LiBNZXJnZSBwdWxsIHJlcXVlc3QgIzExIGludG8gbWFpbicsCiAgICBERUZBVUxUX0FMTE9XX0xJU1QsIERFRkFVTFRfREVOWV9MSVNUKTsKICBhc3NlcnQuZXF1YWwoci5kZWNpc2lvbiwgJ2RlbnknKTsKfSk7Cgpjb25zb2xlLmxvZyhgXG4ke3Bhc3NlZH0gdGVzdHMgcGFzc2VkLmApOwo=
+// test/rules.test.mjs — unit tests for the pure classification logic in rules.js.
+// Run: node test/rules.test.mjs
+import { createRequire } from 'node:module';
+import assert from 'node:assert/strict';
+
+const require = createRequire(import.meta.url);
+const { classifyAction, DEFAULT_ALLOW_LIST, DEFAULT_DENY_LIST, isAllowButtonLabel, isReviewButtonLabel, isExtensionActive } = require('../rules.js');
+
+let passed = 0;
+function check(name, fn) {
+  fn();
+  passed += 1;
+  console.log('ok - ' + name);
+}
+
+// 1. Allow: git push on tuanxminhxgi/agent-tools
+check('allow rule matches git push on tuanxminhxgi/agent-tools', () => {
+  const r = classifyAction(
+    'Allow git push to tuanxminhxgi/agent-tools on branch reports-local-page',
+    DEFAULT_ALLOW_LIST, DEFAULT_DENY_LIST);
+  assert.equal(r.decision, 'allow');
+});
+
+// 2. Allow: git branch creation
+check('allow rule matches git branch creation', () => {
+  const r = classifyAction('Create git branch implement-b-bridge-ideas in tuanxminhxgi/muse2muse',
+    DEFAULT_ALLOW_LIST, DEFAULT_DENY_LIST);
+  assert.equal(r.decision, 'allow');
+});
+
+// 3. Allow: opening a PR
+check('allow rule matches opening a pull request', () => {
+  const r = classifyAction('Open a pull request from implement-b-groups12 into main',
+    DEFAULT_ALLOW_LIST, DEFAULT_DENY_LIST);
+  assert.equal(r.decision, 'allow');
+});
+
+// 4. Allow: reading files
+check('allow rule matches reading files', () => {
+  const r = classifyAction('Read files in tuanxminhxgi/agent-tools: web/src/local/pages/reports/',
+    DEFAULT_ALLOW_LIST, DEFAULT_DENY_LIST);
+  assert.equal(r.decision, 'allow');
+});
+
+// 5. Deny wins over allow: "merge pull request" also matches "pull request" allow rule
+check('deny wins over allow for "merge pull request"', () => {
+  const r = classifyAction('Merge pull request #11 into main (tuanxminhxgi/muse2muse)',
+    DEFAULT_ALLOW_LIST, DEFAULT_DENY_LIST);
+  assert.equal(r.decision, 'deny');
+  assert.match(r.reason, /deny/);
+});
+
+// 6. Payment / billing denied
+check('payment text is denied', () => {
+  const r = classifyAction('Make a payment of $49 for billing / Stripe subscription',
+    DEFAULT_ALLOW_LIST, DEFAULT_DENY_LIST);
+  assert.equal(r.decision, 'deny');
+});
+
+// 7. Credentials / secrets / tokens denied
+check('credential text is denied', () => {
+  const r = classifyAction('Read the API token / password from credentials',
+    DEFAULT_ALLOW_LIST, DEFAULT_DENY_LIST);
+  assert.equal(r.decision, 'deny');
+});
+
+// 8. Delete / destructive denied
+check('delete text is denied', () => {
+  const r = classifyAction('Delete the production database and remove files',
+    DEFAULT_ALLOW_LIST, DEFAULT_DENY_LIST);
+  assert.equal(r.decision, 'deny');
+});
+
+// 9. Unrelated text ignored
+check('unrelated text is ignored', () => {
+  const r = classifyAction('Send a message to Martin on Telegram about the weather',
+    DEFAULT_ALLOW_LIST, DEFAULT_DENY_LIST);
+  assert.equal(r.decision, 'ignore');
+});
+
+// 10. Empty text ignored
+check('empty text is ignored', () => {
+  const r = classifyAction('   ', DEFAULT_ALLOW_LIST, DEFAULT_DENY_LIST);
+  assert.equal(r.decision, 'ignore');
+});
+
+// 11. Deny wins even when an allow rule also matches (git push + delete)
+check('deny wins when both lists match', () => {
+  const r = classifyAction('git push then delete the remote branch',
+    DEFAULT_ALLOW_LIST, DEFAULT_DENY_LIST);
+  assert.equal(r.decision, 'deny');
+});
+
+// 12. Allow: "Get file contents on GitHub" — the Mailbox Check card in the
+// screenshots (2026-11-23), read-only, tuanxminhxgi/muse2muse, main.
+check('allow rule matches Get file contents on GitHub', () => {
+  const r = classifyAction(
+    'Allow Muse B to perform this action on your GitHub account for Muse B Mailbox Check? Muse B wants to retrieve file contents from the GitHub repository tuanxminhxgi/muse2muse on the main branch',
+    DEFAULT_ALLOW_LIST, DEFAULT_DENY_LIST);
+  assert.equal(r.decision, 'allow');
+});
+
+// 13. Allow: "Get commit on GitHub" — the other Mailbox Check card.
+check('allow rule matches Get commit on GitHub', () => {
+  const r = classifyAction(
+    'Muse B wants to look up commit details for the main branch in tuanxminhxgi/muse2muse. This is for the scheduled task "Muse B Mailbox Check"',
+    DEFAULT_ALLOW_LIST, DEFAULT_DENY_LIST);
+  assert.equal(r.decision, 'allow');
+});
+
+// 14. Review button labels (step 1 of the v1.1.0 flow): exact "Review"
+// opens the panel; "Allow"/"Approve" are step-2 labels, not Review.
+check('Review label recognised, Allow/Approve are not Review', () => {
+  assert.equal(isReviewButtonLabel('Review'), true);
+  assert.equal(isReviewButtonLabel('review'), true);
+  assert.equal(isReviewButtonLabel('Review ›'), true);
+  assert.equal(isReviewButtonLabel('Allow'), false);
+  assert.equal(isReviewButtonLabel('Approve'), false);
+  assert.equal(isReviewButtonLabel('A task needs review'), false);
+});
+
+// 15. Allow/Approve button labels (step 2): Allow, Accept, Approve and
+// the Vietnamese equivalents; "Review" is not an Allow label.
+check('Allow/Approve labels recognised, Review is not Allow', () => {
+  assert.equal(isAllowButtonLabel('Allow'), true);
+  assert.equal(isAllowButtonLabel('Approve'), true);
+  assert.equal(isAllowButtonLabel('Accept'), true);
+  assert.equal(isAllowButtonLabel('Cho phép'), true);
+  assert.equal(isAllowButtonLabel('Review'), false);
+  assert.equal(isAllowButtonLabel('Deny'), false);
+});
+
+// 16. Deny still wins for a Get-file-contents card that also mentions a
+// credential/token — opening its panel via Review must never auto-allow it.
+check('deny wins for Get file contents card mentioning a token', () => {
+  const r = classifyAction(
+    'Get file contents on GitHub tuanxminhxgi/muse2muse containing the API token',
+    DEFAULT_ALLOW_LIST, DEFAULT_DENY_LIST);
+  assert.equal(r.decision, 'deny');
+});
+
+// 17. rules.js also copies its exports onto globalThis, so content.js
+// can read them even if lexical sharing across content-script files fails.
+check('rules exports are also on globalThis for content.js', () => {
+  assert.equal(typeof globalThis.classifyAction, 'function');
+  assert.equal(typeof globalThis.isReviewButtonLabel, 'function');
+  assert.ok(Array.isArray(globalThis.DEFAULT_ALLOW_LIST));
+  assert.equal(globalThis.isReviewButtonLabel('Review'), true);
+});
+
+// 18. Activation: ON when master on, not paused, origin enabled.
+// Regression test for v1.1.0/v1.1.1: content.js had
+// `if (!settings.paused) return false`, which left the extension inert
+// in exactly the normal case (paused === false).
+check('isExtensionActive is ON in the normal case, OFF when paused', () => {
+  const base = { masterEnabled: true, paused: false, origins: { 'https://muse.ai': true } };
+  assert.equal(isExtensionActive(base, 'https://muse.ai'), true);
+  assert.equal(isExtensionActive({ ...base, paused: true }, 'https://muse.ai'), false);
+  assert.equal(isExtensionActive({ ...base, masterEnabled: false }, 'https://muse.ai'), false);
+  assert.equal(isExtensionActive({ ...base, origins: {} }, 'https://muse.ai'), false);
+  assert.equal(isExtensionActive(null, 'https://muse.ai'), false);
+});
+
+// 19. GitHub actions added 2026-11-23 (v1.1.3), restrictions kept:
+// "look up a specific commit", "push files", "change content", and the
+// generic GitHub approval-card header.
+check('allow rule matches look up a specific commit', () => {
+  const r = classifyAction(
+    'Muse B wants to look up a specific commit in GitHub. This is for the scheduled task "Muse B Mailbox Check". Action Get commit on GitHub Account tuanxminhxgi Repository owner tuanxminhxgi Repository muse2muse Commit 3a243ff91224a3ebc5634b70f99651b82745036',
+    DEFAULT_ALLOW_LIST, DEFAULT_DENY_LIST);
+  assert.equal(r.decision, 'allow');
+});
+check('allow rule matches push files / change content on GitHub', () => {
+  const r = classifyAction(
+    'Allow Muse B to perform this action on your GitHub account. Muse B wants to change content in your GitHub repository by pushing files.',
+    DEFAULT_ALLOW_LIST, DEFAULT_DENY_LIST);
+  assert.equal(r.decision, 'allow');
+  const r2 = classifyAction(
+    'Muse B wants to push a new package.json to the GitHub repository',
+    DEFAULT_ALLOW_LIST, DEFAULT_DENY_LIST);
+  assert.equal(r2.decision, 'allow');
+});
+
+// 20. Deny still wins even with the GitHub header present.
+check('deny still wins for a GitHub merge card', () => {
+  const r = classifyAction(
+    'Allow Muse B to perform this action on your GitHub account. Merge pull request #11 into main',
+    DEFAULT_ALLOW_LIST, DEFAULT_DENY_LIST);
+  assert.equal(r.decision, 'deny');
+});
+
+console.log(`\n${passed} tests passed.`);
