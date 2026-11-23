@@ -21,7 +21,7 @@ function renderLog(log) {
   }
   for (const e of entries) {
     const li = document.createElement('li');
-    const cls = e.decision === 'allow' ? 'allow' : e.decision === 'deny' ? 'deny-decision' : 'ignore';
+    const cls = e.decision === 'allow' ? 'allow' : e.decision === 'deny' ? 'deny-decision' : e.decision === 'review' ? 'review' : 'ignore';
     const time = e.ts ? new Date(e.ts).toLocaleTimeString() : '';
     li.innerHTML = '';
     const strong = document.createElement('strong');

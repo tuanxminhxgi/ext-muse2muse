@@ -8,6 +8,23 @@
 
 'use strict';
 
+// Button labels the extension recognises. Kept here (pure, testable) so
+// content.js and the tests share exactly the same definitions.
+// REVIEW is the first step: in the Muse UI a pending task first shows a
+// "A task needs review" banner with a Review link/button. Clicking Review
+// only OPENS the approval panel — it approves nothing. The Allow/Approve
+// step is still gated by classifyAction() below.
+const ALLOW_BUTTON_RE = /^(allow|accept|approve|cho phép|đồng ý)$/i;
+const REVIEW_BUTTON_RE = /^(review|xem xét|duyệt|xem lại)$/i;
+
+function isAllowButtonLabel(label) {
+  return ALLOW_BUTTON_RE.test(String(label || '').trim());
+}
+
+function isReviewButtonLabel(label) {
+  return REVIEW_BUTTON_RE.test(String(label || '').trim());
+}
+
 // Default allow-list: regex source strings (one per line in the popup).
 // Scoped to Martin's repos under tuanxminhxgi/ and the scheduled-job context.
 const DEFAULT_ALLOW_LIST = [
@@ -18,6 +35,13 @@ const DEFAULT_ALLOW_LIST = [
   'open\\s+(a\\s+)?pull\\s+request',
   'pull\\s+request',
   'read(ing)?\\s+files?',
+  // Read-only GitHub actions used by the scheduled "Mailbox Check" job
+  // (screenshots 2026-11-23: "Get file contents on GitHub",
+  // "Get commit on GitHub" for tuanxminhxgi/muse2muse).
+  'get\\s+file\\s+contents',
+  'retrieve\\s+file\\s+contents',
+  'get\\s+commit',
+  'look\\s+up\\s+commit',
   'tuanxminhxgi\\/'
 ];
 
@@ -96,5 +120,5 @@ function classifyAction(actionText, allowList, denyList) {
 
 // Export for Node (tests) and for browser content scripts (window/global).
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { classifyAction, DEFAULT_ALLOW_LIST, DEFAULT_DENY_LIST, compilePatterns };
+  module.exports = { classifyAction, DEFAULT_ALLOW_LIST, DEFAULT_DENY_LIST, compilePatterns, ALLOW_BUTTON_RE, REVIEW_BUTTON_RE, isAllowButtonLabel, isReviewButtonLabel };
 }

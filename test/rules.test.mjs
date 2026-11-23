@@ -4,7 +4,7 @@ import { createRequire } from 'node:module';
 import assert from 'node:assert/strict';
 
 const require = createRequire(import.meta.url);
-const { classifyAction, DEFAULT_ALLOW_LIST, DEFAULT_DENY_LIST } = require('../rules.js');
+const { classifyAction, DEFAULT_ALLOW_LIST, DEFAULT_DENY_LIST, isAllowButtonLabel, isReviewButtonLabel } = require('../rules.js');
 
 let passed = 0;
 function check(name, fn) {
@@ -87,6 +87,53 @@ check('empty text is ignored', () => {
 // 11. Deny wins even when an allow rule also matches (git push + delete)
 check('deny wins when both lists match', () => {
   const r = classifyAction('git push then delete the remote branch',
+    DEFAULT_ALLOW_LIST, DEFAULT_DENY_LIST);
+  assert.equal(r.decision, 'deny');
+});
+
+// 12. Allow: "Get file contents on GitHub" — the Mailbox Check card in the
+// screenshots (2026-11-23), read-only, tuanxminhxgi/muse2muse, main.
+check('allow rule matches Get file contents on GitHub', () => {
+  const r = classifyAction(
+    'Allow Muse B to perform this action on your GitHub account for Muse B Mailbox Check? Muse B wants to retrieve file contents from the GitHub repository tuanxminhxgi/muse2muse on the main branch',
+    DEFAULT_ALLOW_LIST, DEFAULT_DENY_LIST);
+  assert.equal(r.decision, 'allow');
+});
+
+// 13. Allow: "Get commit on GitHub" — the other Mailbox Check card.
+check('allow rule matches Get commit on GitHub', () => {
+  const r = classifyAction(
+    'Muse B wants to look up commit details for the main branch in tuanxminhxgi/muse2muse. This is for the scheduled task "Muse B Mailbox Check"',
+    DEFAULT_ALLOW_LIST, DEFAULT_DENY_LIST);
+  assert.equal(r.decision, 'allow');
+});
+
+// 14. Review button labels (step 1 of the v1.1.0 flow): exact "Review"
+// opens the panel; "Allow"/"Approve" are step-2 labels, not Review.
+check('Review label recognised, Allow/Approve are not Review', () => {
+  assert.equal(isReviewButtonLabel('Review'), true);
+  assert.equal(isReviewButtonLabel('review'), true);
+  assert.equal(isReviewButtonLabel('Allow'), false);
+  assert.equal(isReviewButtonLabel('Approve'), false);
+  assert.equal(isReviewButtonLabel('A task needs review'), false);
+});
+
+// 15. Allow/Approve button labels (step 2): Allow, Accept, Approve and
+// the Vietnamese equivalents; "Review" is not an Allow label.
+check('Allow/Approve labels recognised, Review is not Allow', () => {
+  assert.equal(isAllowButtonLabel('Allow'), true);
+  assert.equal(isAllowButtonLabel('Approve'), true);
+  assert.equal(isAllowButtonLabel('Accept'), true);
+  assert.equal(isAllowButtonLabel('Cho phép'), true);
+  assert.equal(isAllowButtonLabel('Review'), false);
+  assert.equal(isAllowButtonLabel('Deny'), false);
+});
+
+// 16. Deny still wins for a Get-file-contents card that also mentions a
+// credential/token — opening its panel via Review must never auto-allow it.
+check('deny wins for Get file contents card mentioning a token', () => {
+  const r = classifyAction(
+    'Get file contents on GitHub tuanxminhxgi/muse2muse containing the API token',
     DEFAULT_ALLOW_LIST, DEFAULT_DENY_LIST);
   assert.equal(r.decision, 'deny');
 });
