@@ -113,6 +113,7 @@ check('allow rule matches Get commit on GitHub', () => {
 check('Review label recognised, Allow/Approve are not Review', () => {
   assert.equal(isReviewButtonLabel('Review'), true);
   assert.equal(isReviewButtonLabel('review'), true);
+  assert.equal(isReviewButtonLabel('Review ›'), true);
   assert.equal(isReviewButtonLabel('Allow'), false);
   assert.equal(isReviewButtonLabel('Approve'), false);
   assert.equal(isReviewButtonLabel('A task needs review'), false);
@@ -136,6 +137,15 @@ check('deny wins for Get file contents card mentioning a token', () => {
     'Get file contents on GitHub tuanxminhxgi/muse2muse containing the API token',
     DEFAULT_ALLOW_LIST, DEFAULT_DENY_LIST);
   assert.equal(r.decision, 'deny');
+});
+
+// 17. rules.js also copies its exports onto globalThis, so content.js
+// can read them even if lexical sharing across content-script files fails.
+check('rules exports are also on globalThis for content.js', () => {
+  assert.equal(typeof globalThis.classifyAction, 'function');
+  assert.equal(typeof globalThis.isReviewButtonLabel, 'function');
+  assert.ok(Array.isArray(globalThis.DEFAULT_ALLOW_LIST));
+  assert.equal(globalThis.isReviewButtonLabel('Review'), true);
 });
 
 console.log(`\n${passed} tests passed.`);

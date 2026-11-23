@@ -15,7 +15,8 @@
 // only OPENS the approval panel — it approves nothing. The Allow/Approve
 // step is still gated by classifyAction() below.
 const ALLOW_BUTTON_RE = /^(allow|accept|approve|cho phép|đồng ý)$/i;
-const REVIEW_BUTTON_RE = /^(review|xem xét|duyệt|xem lại)$/i;
+// Allow a trailing arrow/chevron ("Review ›") — some UIs render one.
+const REVIEW_BUTTON_RE = /^(review|xem xét|duyệt|xem lại)\s*[›→»>]?$/i;
 
 function isAllowButtonLabel(label) {
   return ALLOW_BUTTON_RE.test(String(label || '').trim());
@@ -121,4 +122,19 @@ function classifyAction(actionText, allowList, denyList) {
 // Export for Node (tests) and for browser content scripts (window/global).
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = { classifyAction, DEFAULT_ALLOW_LIST, DEFAULT_DENY_LIST, compilePatterns, ALLOW_BUTTON_RE, REVIEW_BUTTON_RE, isAllowButtonLabel, isReviewButtonLabel };
+}
+
+// Defensive cross-file sharing for content scripts: classic content-script
+// files are injected in order into one shared scope, so the top-level
+// consts/functions above are normally visible to content.js — but if any
+// injection mode isolates them, the explicit globalThis copies below are
+// the fallback content.js reads first. Never rely on lexical sharing alone.
+if (typeof globalThis !== 'undefined') {
+  globalThis.classifyAction = classifyAction;
+  globalThis.DEFAULT_ALLOW_LIST = DEFAULT_ALLOW_LIST;
+  globalThis.DEFAULT_DENY_LIST = DEFAULT_DENY_LIST;
+  globalThis.ALLOW_BUTTON_RE = ALLOW_BUTTON_RE;
+  globalThis.REVIEW_BUTTON_RE = REVIEW_BUTTON_RE;
+  globalThis.isAllowButtonLabel = isAllowButtonLabel;
+  globalThis.isReviewButtonLabel = isReviewButtonLabel;
 }

@@ -14,12 +14,18 @@
 // If the panel is already open, step 1 is skipped and step 2 runs directly.
 'use strict';
 
-// rules.js is loaded before this file in the same content-script world,
-// so its top-level consts (ALLOW_BUTTON_RE, REVIEW_BUTTON_RE) are already
-// declared here — redeclaring them would throw. Use distinct local names
-// that pick up the shared ones when present, else fall back.
-const ALLOW_RE = (typeof ALLOW_BUTTON_RE !== 'undefined' ? ALLOW_BUTTON_RE : /^(allow|accept|approve|cho phép|đồng ý)$/i);
-const REVIEW_RE = (typeof REVIEW_BUTTON_RE !== 'undefined' ? REVIEW_BUTTON_RE : /^(review|xem xét|duyệt|xem lại)$/i);
+// rules.js is loaded before this file in the same content-script world
+// and also copies its exports onto globalThis (see rules.js bottom), so
+// read the shared values from globalThis first — lexical sharing of
+// top-level consts across content-script files is not something to bet
+// the whole extension on. Fall back to the lexical names, then to local
+// copies, in that order.
+const _g = (typeof globalThis !== 'undefined') ? globalThis : {};
+const ALLOW_RE = _g.ALLOW_BUTTON_RE || (typeof ALLOW_BUTTON_RE !== 'undefined' ? ALLOW_BUTTON_RE : /^(allow|accept|approve|cho phép|đồng ý)$/i);
+const REVIEW_RE = _g.REVIEW_BUTTON_RE || (typeof REVIEW_BUTTON_RE !== 'undefined' ? REVIEW_BUTTON_RE : /^(review|xem xét|duyệt|xem lại)\s*[›→»>]?$/i);
+const CLASSIFY_FN = _g.classifyAction || (typeof classifyAction !== 'undefined' ? classifyAction : null);
+const FALLBACK_ALLOW_LIST = _g.DEFAULT_ALLOW_LIST || (typeof DEFAULT_ALLOW_LIST !== 'undefined' ? DEFAULT_ALLOW_LIST : []);
+const FALLBACK_DENY_LIST = _g.DEFAULT_DENY_LIST || (typeof DEFAULT_DENY_LIST !== 'undefined' ? DEFAULT_DENY_LIST : []);
 const MAX_ACTION_CHARS = 500;
 const SAFETY_DELAY_MS = 800;
 // After clicking Review, give the panel time to appear before clicking
@@ -48,8 +54,8 @@ function loadSettings() {
             masterEnabled: r.masterEnabled !== false,
             paused: r.paused === true,
             origins: r.origins || {},
-            allowList: Array.isArray(r.allowList) ? r.allowList : DEFAULT_ALLOW_LIST,
-            denyList: Array.isArray(r.denyList) ? r.denyList : DEFAULT_DENY_LIST
+            allowList: Array.isArray(r.allowList) ? r.allowList : FALLBACK_ALLOW_LIST,
+            denyList: Array.isArray(r.denyList) ? r.denyList : FALLBACK_DENY_LIST
           };
           settingsReady = true;
           resolve(settings);
@@ -86,6 +92,14 @@ async function logDecision(entry) {
   } catch (e) {
     // Logging must never break the page.
   }
+}
+
+
+// classifyAction() comes from rules.js (globalThis first, lexical second).
+// If it is somehow unavailable, fail safe: classify as ignore, never click.
+function classify(text) {
+  if (!CLASSIFY_FN) return { decision: 'ignore', reason: 'classifyAction unavailable', matchedRule: null };
+  return CLASSIFY_FN(text, settings.allowList, settings.denyList);
 }
 
 // Find the nearest reasonable "card" container for a button.
@@ -137,8 +151,13 @@ function scanForReviewButtons() {
   if (allowVisible) return;
   if (Date.now() - lastReviewClickAt < REVIEW_CLICK_COOLDOWN_MS) return;
 
-  // Review can be a <button>, a link, or a [role="button"] element.
-  const candidates = document.querySelectorAll('button, a, [role="button"]');
+  // Review can be a <button>, a link, or a [role="button"] element — and in
+  // some Muse UI builds it is a plain <div>/<span> with an onClick handler,
+  // so try clickable elements first, then any element whose exact text is
+  // "Review" (clicking a span inside a button bubbles to the button).
+  const clickable = document.querySelectorAll('button, a, [role="button"]');
+  const anyEl = document.querySelectorAll('div, span');
+  const candidates = Array.from(clickable).concat(Array.from(anyEl));
   for (const el of candidates) {
     const label = (el.innerText || el.textContent || '').trim();
     if (!REVIEW_RE.test(label)) continue;
@@ -176,7 +195,7 @@ function scanForCards() {
 
     const card = findCardContainer(button);
     const actionText = extractActionText(card);
-    const result = classifyAction(actionText, settings.allowList, settings.denyList);
+    const result = classify(actionText);
 
     button.setAttribute(PROCESSED_ATTR, '1');
 
@@ -189,7 +208,7 @@ function scanForCards() {
         if (button.disabled) return;
         const freshCard = findCardContainer(button);
         const freshText = extractActionText(freshCard);
-        const fresh = classifyAction(freshText, settings.allowList, settings.denyList);
+        const fresh = classify(freshText);
         if (fresh.decision !== 'allow') {
           logDecision({ action: freshText, decision: 'ignore', reason: 're-check after delay no longer allows: ' + fresh.reason });
           return;

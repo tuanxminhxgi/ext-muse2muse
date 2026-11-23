@@ -40,8 +40,17 @@ Every decision (review / allow / deny / ignore) is logged to `chrome.storage.loc
    (`~/workspace/muse-auto-allow-extension/`).
 4. The extension icon appears in the toolbar.
 
-After updating to a new version: open `chrome://extensions` and click
-**Reload** on Muse Auto-Allow, then reload the Muse chat tab.
+After updating to a new version: **Reload in `chrome://extensions` alone does
+NOT download new code from GitHub.** First update the local folder, then reload:
+
+1. In the folder you loaded unpacked from, run `git pull` (or download the
+   latest code from GitHub and replace that folder).
+2. Open `chrome://extensions` and click **Reload** on Muse Auto-Allow.
+   Check the version shown there is the new one (v1.1.1 or later).
+3. Reload the Muse chat tab (F5) — a content script only injects on page load,
+   so an already-open tab keeps running the old code until you reload it.
+4. Open the extension popup on the Muse tab and check it shows the new
+   version and **"Allow on this site"** is ON for muse.ai.
 
 ## Enable it for the Muse chat origin
 
@@ -105,7 +114,19 @@ node --check rules.js content.js background.js popup.js
 node test/rules.test.mjs
 ```
 
-All 16 assertions pass (see test file for the cases: git push/branch/PR/read
+All 17 assertions pass (see test file for the cases: git push/branch/PR/read
 allowed; `Get file contents` / `Get commit` on GitHub allowed; merge PR /
 payment / credential / delete denied; unrelated and empty text ignored; deny
-wins when both lists match; Review vs Allow button labels distinguished).
+wins when both lists match; Review vs Allow button labels distinguished,
+including a trailing "Review ›"; rules.js exports are also on globalThis).
+
+## Changelog
+
+- **v1.1.1** — Review detection now also tries plain `<div>`/`<span>` elements
+  (some Muse UI builds render Review that way) and accepts a trailing arrow;
+  rules.js copies its exports onto `globalThis` so content.js does not depend
+  only on lexical sharing across content-script files; the popup shows the
+  installed version so a stale install is visible at a glance.
+- **v1.1.0** — Two-step flow: click Review to open the approval panel, then
+  click Allow/Approve only for allow-listed actions; read-only GitHub allow
+  rules (`get file contents`, `get commit`) added.

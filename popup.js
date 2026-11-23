@@ -38,6 +38,10 @@ function renderLog(log) {
 }
 
 function loadAll() {
+  try {
+    const v = chrome.runtime && chrome.runtime.getManifest ? chrome.runtime.getManifest().version : '';
+    if (v) $('version').textContent = 'Version ' + v + ' — check this matches the latest on GitHub before debugging.';
+  } catch (e) { /* version display is best-effort */ }
   chrome.storage.sync.get(
     ['masterEnabled', 'paused', 'origins', 'allowList', 'denyList'],
     (s) => {
