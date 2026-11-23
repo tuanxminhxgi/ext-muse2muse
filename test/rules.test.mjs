@@ -4,7 +4,7 @@ import { createRequire } from 'node:module';
 import assert from 'node:assert/strict';
 
 const require = createRequire(import.meta.url);
-const { classifyAction, DEFAULT_ALLOW_LIST, DEFAULT_DENY_LIST, isAllowButtonLabel, isReviewButtonLabel } = require('../rules.js');
+const { classifyAction, DEFAULT_ALLOW_LIST, DEFAULT_DENY_LIST, isAllowButtonLabel, isReviewButtonLabel, isExtensionActive } = require('../rules.js');
 
 let passed = 0;
 function check(name, fn) {
@@ -146,6 +146,19 @@ check('rules exports are also on globalThis for content.js', () => {
   assert.equal(typeof globalThis.isReviewButtonLabel, 'function');
   assert.ok(Array.isArray(globalThis.DEFAULT_ALLOW_LIST));
   assert.equal(globalThis.isReviewButtonLabel('Review'), true);
+});
+
+// 18. Activation: ON when master on, not paused, origin enabled.
+// Regression test for v1.1.0/v1.1.1: content.js had
+// `if (!settings.paused) return false`, which left the extension inert
+// in exactly the normal case (paused === false).
+check('isExtensionActive is ON in the normal case, OFF when paused', () => {
+  const base = { masterEnabled: true, paused: false, origins: { 'https://muse.ai': true } };
+  assert.equal(isExtensionActive(base, 'https://muse.ai'), true);
+  assert.equal(isExtensionActive({ ...base, paused: true }, 'https://muse.ai'), false);
+  assert.equal(isExtensionActive({ ...base, masterEnabled: false }, 'https://muse.ai'), false);
+  assert.equal(isExtensionActive({ ...base, origins: {} }, 'https://muse.ai'), false);
+  assert.equal(isExtensionActive(null, 'https://muse.ai'), false);
 });
 
 console.log(`\n${passed} tests passed.`);

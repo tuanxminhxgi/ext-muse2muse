@@ -26,6 +26,21 @@ function isReviewButtonLabel(label) {
   return REVIEW_BUTTON_RE.test(String(label || '').trim());
 }
 
+/**
+ * Pure activation check, unit-tested (regression: v1.1.0/v1.1.1 shipped
+ * `if (!settings.paused) return false` in content.js, which inverted the
+ * pause logic and left the extension permanently inert whenever it was
+ * NOT paused — exactly the normal case. Never invert this again:
+ * paused === true means OFF, paused === false means ON.
+ */
+function isExtensionActive(settings, origin) {
+  if (!settings) return false;
+  if (settings.masterEnabled === false) return false;
+  if (settings.paused) return false;
+  const origins = settings.origins || {};
+  return origins[origin] === true;
+}
+
 // Default allow-list: regex source strings (one per line in the popup).
 // Scoped to Martin's repos under tuanxminhxgi/ and the scheduled-job context.
 const DEFAULT_ALLOW_LIST = [
@@ -121,7 +136,7 @@ function classifyAction(actionText, allowList, denyList) {
 
 // Export for Node (tests) and for browser content scripts (window/global).
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { classifyAction, DEFAULT_ALLOW_LIST, DEFAULT_DENY_LIST, compilePatterns, ALLOW_BUTTON_RE, REVIEW_BUTTON_RE, isAllowButtonLabel, isReviewButtonLabel };
+  module.exports = { classifyAction, DEFAULT_ALLOW_LIST, DEFAULT_DENY_LIST, compilePatterns, ALLOW_BUTTON_RE, REVIEW_BUTTON_RE, isAllowButtonLabel, isReviewButtonLabel, isExtensionActive };
 }
 
 // Defensive cross-file sharing for content scripts: classic content-script
@@ -137,4 +152,5 @@ if (typeof globalThis !== 'undefined') {
   globalThis.REVIEW_BUTTON_RE = REVIEW_BUTTON_RE;
   globalThis.isAllowButtonLabel = isAllowButtonLabel;
   globalThis.isReviewButtonLabel = isReviewButtonLabel;
+  globalThis.isExtensionActive = isExtensionActive;
 }

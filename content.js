@@ -71,10 +71,12 @@ function loadSettings() {
 
 function isActiveForThisOrigin() {
   if (!settingsReady || !settings) return false;
-  if (!settings.masterEnabled) return false;
-  if (!settings.paused) return false;
   if (typeof window !== 'undefined' && window.__museAutoAllowPaused) return false;
-  return settings.origins[location.origin] === true;
+  // Activation logic lives in rules.js (isExtensionActive) and is unit
+  // tested — do NOT re-implement the paused/master checks here.
+  const fn = _g.isExtensionActive || (typeof isExtensionActive !== 'undefined' ? isExtensionActive : null);
+  if (!fn) return false;
+  return fn(settings, location.origin);
 }
 
 async function logDecision(entry) {
@@ -144,11 +146,14 @@ function isVisible(el) {
 // never approved — its panel is opened, read, and left alone.
 function scanForReviewButtons() {
   if (!isActiveForThisOrigin()) return;
-  // If an Allow button is already visible, the panel is open — no need
-  // to click Review.
-  const allowVisible = Array.from(document.querySelectorAll('button'))
-    .some((b) => !b.disabled && ALLOW_RE.test((b.innerText || b.textContent || '').trim()) && isVisible(b));
-  if (allowVisible) return;
+  // NOTE: do NOT skip Review just because an Allow button is already
+  // visible. In the Muse UI the approval panel can sit in the DOM with an
+  // Allow button while the inline "A task needs review" banner is also
+  // shown — and that Allow button may already have been processed (e.g.
+  // classified ignore for a different card). Skipping Review then deadlocks
+  // the whole flow: Review is never clicked and the processed Allow is
+  // never clicked again. Review is read-only navigation, so clicking it
+  // even when a panel is already open is harmless.
   if (Date.now() - lastReviewClickAt < REVIEW_CLICK_COOLDOWN_MS) return;
 
   // Review can be a <button>, a link, or a [role="button"] element — and in
@@ -163,9 +168,16 @@ function scanForReviewButtons() {
     if (!REVIEW_RE.test(label)) continue;
     if (el.disabled) continue;
     if (el.hasAttribute(REVIEW_PROCESSED_ATTR)) continue;
+    // The Review label can live on both a <button> and the <span> inside
+    // it — treat them as one control: if the enclosing button/link was
+    // already processed, skip the span (and vice versa), so one banner is
+    // clicked once, not once per nested element.
+    const host = el.closest ? el.closest('button, a, [role="button"]') : null;
+    if (host && host !== el && host.hasAttribute(REVIEW_PROCESSED_ATTR)) continue;
     if (!isVisible(el)) continue;
 
     el.setAttribute(REVIEW_PROCESSED_ATTR, '1');
+    if (host && host !== el) host.setAttribute(REVIEW_PROCESSED_ATTR, '1');
     const banner = findCardContainer(el);
     const bannerText = extractActionText(banner);
     logDecision({ action: bannerText, decision: 'review', reason: 'opening approval panel — no approval yet' });
@@ -177,6 +189,11 @@ function scanForReviewButtons() {
       lastReviewClickAt = Date.now();
       el.click();
       logDecision({ action: bannerText, decision: 'review', reason: 'clicked Review after 800ms re-check; panel should now open' });
+      // Re-scan after the panel opens: opening it may only change an
+      // attribute (e.g. display) rather than adding nodes, and some UIs
+      // mount the panel a beat later. The observer also watches attributes.
+      setTimeout(scanAll, 600);
+      setTimeout(scanAll, 1500);
     }, SAFETY_DELAY_MS);
     return; // one Review click at a time; the observer re-scans afterwards
   }
@@ -230,8 +247,10 @@ function scanForCards() {
 }
 
 function scanAll() {
-  scanForCards();
+  // Review FIRST, then Allow: the requested flow is Review → Allow, and
+  // the Allow scan must not block Review (see scanForReviewButtons).
   scanForReviewButtons();
+  scanForCards();
 }
 
 function startObserver() {
@@ -239,7 +258,9 @@ function startObserver() {
   const observer = new MutationObserver(() => {
     scanAll();
   });
-  observer.observe(document.body, { childList: true, subtree: true });
+  // attributes:true so a panel that only toggles display/visibility (no
+  // new nodes) still triggers a re-scan.
+  observer.observe(document.body, { childList: true, subtree: true, attributes: true });
   scanAll(); // also scan what is already on the page
 }
 

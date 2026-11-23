@@ -114,11 +114,34 @@ node --check rules.js content.js background.js popup.js
 node test/rules.test.mjs
 ```
 
-All 17 assertions pass (see test file for the cases: git push/branch/PR/read
+All 18 assertions pass (see test file for the cases: git push/branch/PR/read
 allowed; `Get file contents` / `Get commit` on GitHub allowed; merge PR /
 payment / credential / delete denied; unrelated and empty text ignored; deny
 wins when both lists match; Review vs Allow button labels distinguished,
-including a trailing "Review ›"; rules.js exports are also on globalThis).
+including a trailing "Review ›"; rules.js exports are also on globalThis;
+`isExtensionActive` is ON in the normal case and OFF when paused).
+
+The Review → Allow end-to-end flow was also verified in a jsdom harness
+against the exact `hatch-inline-approval-card` HTML from the Muse UI
+(2026-11-23): the Review button is clicked first, the panel opens, then
+Allow is clicked — in that order, once each.
+
+## Changelog
+
+- **v1.1.2** — **Root-cause fix:** content.js had `if (!settings.paused)
+  return false`, inverting the pause check and leaving the extension
+  permanently inert in the normal (not paused) case. Activation logic is
+  now the unit-tested `isExtensionActive()` in rules.js. Also removed the
+  `allowVisible` block that could deadlock Review when an Allow button was
+  already in the DOM, Review now runs before Allow, the observer also
+  watches attributes, and a re-scan runs after Review is clicked so a panel
+  that only toggles display is still caught. Button + inner span are
+  treated as one Review control (clicked once).
+- **v1.1.1** — Review detection now also tries plain `<div>`/`<span>` elements
+  (some Muse UI builds render Review that way) and accepts a trailing arrow;
+  rules.js copies its exports onto `globalThis` so content.js does not depend
+  only on lexical sharing across content-script files; the popup shows the
+  installed version so a stale install is visible at a glance.
 
 ## Changelog
 
